@@ -4,6 +4,7 @@ MAINTAINER Tyrone "tyrone.dev@gmail.com"
 ADD http://mirrors.jenkins-ci.org/war/2.0/jenkins.war /opt/jenkins.war
 
 RUN apt-get update \
+  && apt-get install -qy curl \
   && curl -sSL https://deb.nodesource.com/setup_6.x | sh - \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
