@@ -2,12 +2,13 @@ FROM tyrone98/java8
 MAINTAINER Tyrone "tyrone.dev@gmail.com"
 
 RUN apt-get update \
-  && apt-get install -qy curl \
-  && curl -sSL https://deb.nodesource.com/setup_6.x | sh - \
+  && apt-get install -qy curl zip \
+  && curl -sSL https://deb.nodesource.com/setup_5.x | sh - \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
   && curl -sSL -O https://services.gradle.org/distributions/gradle-2.13-bin.zip \
-  && tar zxf  gradle-2.13-bin.zip -C /tmp \
+  && unzip gradle-2.13-bin.zip -d /opt \
+  && ln -s /opt/gradle-2.13/bin/gradle /usr/bin/gradle \
   && curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz \
   && tar zxf docker-1.11.1.tgz -C / \
   && chmod +x /usr/bin/docker \
