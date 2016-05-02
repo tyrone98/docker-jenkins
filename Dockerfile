@@ -6,8 +6,11 @@ RUN apt-get update \
   && curl -sSL https://deb.nodesource.com/setup_6.x | sh - \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
-  && curl -sSL https://services.gradle.org/distributions/gradle-2.13-bin.zip -o /tmp/gradle.zip
-  && cd /tmp/ && unzip /tmp/gradle.zip
+  && curl -sSL -O https://services.gradle.org/distributions/gradle-2.13-bin.zip \
+  && tar zxf  gradle-2.13-bin.zip -C /tmp \
+  && curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz \
+  && tar zxf docker-1.11.1.tgz -C / \
+  && chmod +x /usr/bin/docker \
   && useradd -m jenkins \
   && mkdir /jenkins \
   && chown jenkins /jenkins \
