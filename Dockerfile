@@ -13,7 +13,7 @@ RUN apt-get update \
   && tar zxf /tmp/docker.tgz -C /tmp \
   && cp /tmp/docker/docker /usr/bin/docker \
   && chmod +x /usr/bin/docker \
-  && useradd -u 999 -m jenkins \
+  && useradd -u 999 -g root -m jenkins \
   && mkdir /jenkins \
   && chown jenkins /jenkins \
   && curl -sSL http://mirrors.jenkins-ci.org/war/2.0/jenkins.war -o /opt/jenkins.war \
