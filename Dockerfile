@@ -6,11 +6,12 @@ RUN apt-get update \
   && curl -sSL https://deb.nodesource.com/setup_5.x | sh - \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
-  && curl -sSL -O https://services.gradle.org/distributions/gradle-2.13-bin.zip \
-  && unzip gradle-2.13-bin.zip -d /opt \
+  && curl -sSL https://services.gradle.org/distributions/gradle-2.13-bin.zip -o /tmp/gradle.zip \
+  && unzip /tmp/gradle.zip -d /opt \
   && ln -s /opt/gradle-2.13/bin/gradle /usr/bin/gradle \
-  && curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz \
-  && tar zxf docker-1.11.1.tgz -C / \
+  && curl -sSL https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz -o /tmp/docker.tgz \
+  && tar zxf /tmp/docker.tgz -C /tmp \
+  && cp /tmp/docker/docker /usr/bin/docker \
   && chmod +x /usr/bin/docker \
   && useradd -m jenkins \
   && mkdir /jenkins \
