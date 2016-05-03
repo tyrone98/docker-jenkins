@@ -4,9 +4,9 @@ MAINTAINER Tyrone "tyrone.dev@gmail.com"
 RUN apt-get update \
   && apt-get install -qy curl zip git bash \
   && curl -sSL https://deb.nodesource.com/setup_5.x | bash - \
-  && npm install -g  cnpm \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
+  && npm install -g  cnpm \
   && curl -sSL https://services.gradle.org/distributions/gradle-2.13-bin.zip -o /tmp/gradle.zip \
   && unzip /tmp/gradle.zip -d /opt \
   && ln -s /opt/gradle-2.13/bin/gradle /usr/bin/gradle \
