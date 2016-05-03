@@ -2,8 +2,8 @@ FROM tyrone98/java8
 MAINTAINER Tyrone "tyrone.dev@gmail.com"
 
 RUN apt-get update \
-  && apt-get install -qy curl zip git \
-  && curl -sSL https://deb.nodesource.com/setup_5.x | sh - \
+  && apt-get install -qy curl zip git bash \
+  && curl -sSL https://deb.nodesource.com/setup_5.x | bash - \
   && npm install -g  cnpm \
   && apt-get update \
   && apt-get -qy install build-essential nodejs \
